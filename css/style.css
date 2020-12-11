@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: -webkit-linear-gradient(top, #009688, #009688 20%,#D8DBD6 20%, #D8DBD6);
+    display: flex;
+}
+
+.wrapper {
+    width: 75%;
+    height: 90vh;
+    margin: auto;
+    background-color: white;
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.6);
+}
+
+.nav {
+    display: flex;
+    width: 100%;
+    height: 70px;
+    background-color: #EAEAEA;
+}
+
+.nav .left {
+    width: 35%;
+    border-right: 1px solid lightgray;
+}
