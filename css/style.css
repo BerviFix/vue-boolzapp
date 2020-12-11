@@ -9,6 +9,15 @@ body {
     height: 100vh;
     background: -webkit-linear-gradient(top, #009688, #009688 20%,#D8DBD6 20%, #D8DBD6);
     display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.icon_colors {
+    color: #B1B1B1;
+}
+.margin_left_5 {
+    margin-left: 5%;
+
 }
 
 .wrapper {
@@ -27,6 +36,40 @@ body {
 }
 
 .nav .left {
+    display: flex;
     width: 35%;
     border-right: 1px solid lightgray;
+}
+
+.nav .left .user_info, .nav .left .settings {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+.nav .left .user_info i, .nav .left .user_info img, .nav .left .user_info h4, .nav .left .settings i {
+    cursor: pointer;
+}
+
+.settings {
+    justify-content: flex-end;
+    padding-right: 3%;
+    font-size: 23px;
+}
+
+.nav .right {
+    display: flex;
+    width: 75%;
+}
+
+.nav .right .user_info, .nav .right .settings {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+.nav .right .user_info .name_user p {
+    font-size: 12px;
+    color: gray;
 }
