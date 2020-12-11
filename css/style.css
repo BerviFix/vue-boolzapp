@@ -159,3 +159,91 @@ i {
 .main .right {
     background-image: url('https://i.ibb.co/nLhD4sD/Capture.png');
 }
+
+.wrapper_chat {
+    display: flex;
+    width: 85%;
+    height: 90%;
+    margin: 0 auto;
+}
+
+.wrapper_chat .chat_sent {
+    width: 50%;
+    height: 90%;
+    margin: auto 0;
+}
+.bubble_chat_sent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    margin: 8% 28%;
+    border-radius: 15px;
+    background: #D5F9BA;
+    padding: 5px 15px;
+    text-align: left;
+    position: relative;
+}
+.message_sent:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 15px solid #D5F9BA;
+    border-right: 15px solid transparent;
+    border-top: 15px solid  #D5F9BA;
+    border-bottom: 15px solid transparent;
+    right: -16px;
+    top: 0px;
+}
+.message_sent .message_time {
+    margin-left: 60%;
+    margin-right: 0;
+    margin-top: 5%;
+    font-size: 11px;
+    color: #B1B1B1;
+}
+
+.wrapper_chat .chat_received {
+    width: 50%;
+    height: 90%;
+    margin: auto 0;
+}
+.bubble_chat_received {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    margin: 50% 0;
+    border-radius: 15px;
+    background:white;
+    padding: 5px 15px;
+    text-align: left;
+    position: relative;
+}
+.message_received:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 15px solid transparent;
+    border-right: 15px solid white;
+    border-top: 15px solid white;
+    border-bottom: 15px solid transparent;
+    left: -16px;
+    top: 0px;
+}
+
+.message_received .message_time {
+    margin-left: 28%;
+    margin-right: 0;
+    margin-top: 10%;
+    font-size: 11px;
+    color: #B1B1B1;
+}
+
+
+.nav_chat {
+    width: 100%;
+    height: 10%;
+    background-color: lightcoral;
+}
