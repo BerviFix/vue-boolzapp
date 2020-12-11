@@ -11,13 +11,15 @@ body {
     display: flex;
     font-family: Arial, Helvetica, sans-serif;
 }
+i {
+    cursor: pointer;
+}
 
 .icon_colors {
     color: #B1B1B1;
 }
 .margin_left_5 {
     margin-left: 5%;
-
 }
 
 .wrapper {
@@ -122,4 +124,38 @@ body {
 .enable_notification_text a {
     color: black;
     font-size: 13px;
+}
+
+.message_search {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background-color: #FAFAFA;
+}
+.icon_message_search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    height: 30px;
+    background-color: white;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.message_search input {
+    width: 85%;
+    height: 30px;
+    border: none;
+    outline-style: none;
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.1);
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+
+.main .right {
+    background-image: url('https://i.ibb.co/nLhD4sD/Capture.png');
 }
