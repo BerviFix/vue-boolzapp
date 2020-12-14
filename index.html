@@ -9,12 +9,12 @@
     <title>Boolzapp</title>
 </head>
 <body>
-    <div class="wrapper">
+    <div class="wrapper" id="root">
         <div class="nav">
             <div class="left">
                 <div class="user_info">
                     <div class="avatar margin_left_5">
-                        <img src="https://p7.hiclipart.com/preview/129/94/328/computer-icons-avatar-icon-design-male-teacher.jpg" alt="avatar" width="50px">
+                        <img src="img/user.png" alt="avatar" width="50px">
                     </div>
 
                     <div class="name_user margin_left_5">
@@ -83,41 +83,41 @@
 
                 <div class="message_search">
                     <div class="icon_message_search">
-                    <i class="fas fa-search icon_colors"></i>
+                        <i class="fas fa-search icon_colors"></i>
                     </div>
                     <input type="text" placeholder="Cerca o inizia una nuova chat" class="message_search_input">
                 </div>
 
                 <div class="chat_list">
+                    <div v-for="(contact, index) in contacts" class="chat_row" @click="clickContact(index)" :class="contacts[index].visible == 'true' ? 'active' : ''">
+                        <div class="avatar_img">
+                            <img :src="'img/' + contacts[index].avatar" alt="avatar" width="50px">
+                        </div>
 
+                        <div class="message_info">
+                            <h4>{{contacts[index].name}}</h4>
+                            <p>{{contact.messages[contact.messages.length-1].text}}</p>
+                        </div>
+
+                        <div class="date">
+                            <p>{{contact.messages[contact.messages.length-1].date}}</p>
+                        </div>
+                    </div>
                 </div>
 
             </div>
             
             <div class="right">
-                <div class="wrapper_chat">
-                    <div class="chat_received">
-                        <div class="bubble_chat_received message_received">
-                            Tutto fatto!
-                            <div class="message_time">10/01/2020 16:15:22</div>
-                        </div>
-                    </div>
-
-                    <div class="chat_sent">
-                        <div class="bubble_chat_sent message_sent">
-                            Hai portato a spasso il cane?
-                            <div class="message_time">10/01/2020 16:15:22</div>
-                        </div>
-
-                        <div class="bubble_chat_sent message_sent">
-                            Ricordati di dargli da mangiare
-                            <div class="message_time">10/01/2020 16:15:22</div>
-                        </div>
+                <div  class="wrapper_chat">
+                    <div v-for="(message, index) in contacts.messages" :class="message.status == 'sent' ? 'sent' : 'received'">
+                        {{contact.messages[index].text}} <span></span> -->
                     </div>
                 </div>
 
                 <div class="nav_chat">
-
+                    <i class="far fa-smile"></i>
+                    <input type="text" placeholder="Scrivi un messaggio" class="message_input">
+                    <i class="fas fa-microphone"></i>
                 </div>
             </div>
         </div>
