@@ -106,7 +106,7 @@ var app = new Vue({
     },
     methods: {
         clickContact: function (index) {
-            for (let i = 0; i < this.contact.lenght; i++) {
+            for (let i = 0; i < this.contact.length; i++) {
                 this.contacts[i].visible = false;
             }
             this.contact(index).visible = true;
