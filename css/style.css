@@ -175,6 +175,19 @@ i {
 }
 .chat_list .chat_row .message_info {
     padding-left: 15px;
+    font-size: 14px;
+    width: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.chat_list .chat_row .message_info p {
+    font-size: 14px;
+}
+.chat_list .chat_row .date {
+    font-size: 12px;
+    margin-left: auto;
+    padding-right: 5px;
 }
 
 
@@ -196,6 +209,7 @@ i {
     height: 50px;
     border-radius: 10px;
     padding-left: 5px;
+    margin-top: 20px;
     background-color: white;
 }
 
@@ -207,6 +221,7 @@ i {
     height: 50px;
     border-radius: 10px;
     padding-left: 5px;
+    margin-top: 20px;
     background-color: #D5F9BA;
 }
 

@@ -9,6 +9,9 @@
 
 var app = new Vue({
     el: '#root',
+    created: function() {
+        this.activeChat = this.contacts[0];
+    },
     data: {
         contacts: [
             {
@@ -102,14 +105,12 @@ var app = new Vue({
 
             },
 
-        ]
+        ],
+        activeChat: {},
     },
     methods: {
         clickContact: function (index) {
-            for (let i = 0; i < this.contact.length; i++) {
-                this.contacts[i].visible = false;
-            }
-            this.contact(index).visible = true;
+            this.activeChat = this.contacts[index];
         },
     }
 });
