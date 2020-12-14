@@ -39,14 +39,14 @@
             </div>
 
             <div class="right">
-                <div class="user_info" v-for="(item, index) in activeChat">
+                <div class="user_info">
                     <div class="avatar margin_left_5">
                         <img :src="'img/' + activeChat.avatar" alt="avatar" width="50px">
                     </div>
                 
                     <div class="name_user margin_left_5">
                         <h4>{{activeChat.name}}</h4>
-                        <p>Ultimo accesso oggi alle {{activeChat.date}}</p>
+                        <p>Ultimo accesso oggi alle {{activeChat.messages[activeChat.messages.length-1].date}}</p>
                     </div>
                 </div>
 
@@ -88,7 +88,7 @@
                 </div>
 
                 <div class="chat_list">
-                    <div v-for="(contact, index) in contacts" class="chat_row" @click="clickContact(index)" :class="this.isActive == true ? 'active' : ''">
+                    <div v-for="(contact, index) in contacts" class="chat_row" @click="clickContact(index)" :class="{ active: selectedIndex == index }">
                         <div class="avatar_img">
                             <img :src="'img/' + contacts[index].avatar" alt="avatar" width="50px">
                         </div>
@@ -109,13 +109,13 @@
             <div class="right">
                 <div  class="wrapper_chat">
                     <div v-for="(message, index) in activeChat.messages" :class="message.status == 'sent' ? 'sent' : 'received'">
-                        {{message.text}} <span></span>
+                        {{message.text}} <span>{{message.date}}</span>
                     </div>
                 </div>
 
                 <div class="nav_chat">
                     <i class="far fa-smile"></i>
-                    <input type="text" placeholder="Scrivi un messaggio" class="message_input">
+                    <input v-model="userMessage" type="text" placeholder="Scrivi un messaggio" class="message_input" v-on:keyup.13="sendMessage">
                     <i class="fas fa-microphone"></i>
                 </div>
             </div>

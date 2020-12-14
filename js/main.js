@@ -107,10 +107,27 @@ var app = new Vue({
 
         ],
         activeChat: {},
+        newSendMessage: {},
+        selectedIndex: 0,
+        userMessage: '',
     },
     methods: {
         clickContact: function (index) {
             this.activeChat = this.contacts[index];
+            this.selectedIndex = index;
+            console.log(this.selectedIndex);
+
+            
+            // for (let i = 0; i < this.activeChat.length; i++) {
+            //     this.activeChat.visible = true;
+            //     console.log(this.activeChat.visible);
+            // }
+            // this.activeChat.visible = false;
+        },
+
+        sendMessage: function (){
+            var contactMessage = this.activeChat.messages
+
         },
     }
 });
