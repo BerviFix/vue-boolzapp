@@ -108,25 +108,37 @@ var app = new Vue({
         ],
         activeChat: {},
         newSendMessage: {},
+        newReceiveMessage: {},
         selectedIndex: 0,
         userMessage: '',
     },
     methods: {
         clickContact: function (index) {
+            //mi creao la funzione per quando clicco su un contatto e gestistco l'active
             this.activeChat = this.contacts[index];
             this.selectedIndex = index;
-            console.log(this.selectedIndex);
-
-            
-            // for (let i = 0; i < this.activeChat.length; i++) {
-            //     this.activeChat.visible = true;
-            //     console.log(this.activeChat.visible);
-            // }
-            // this.activeChat.visible = false;
         },
 
         sendMessage: function (){
-            var contactMessage = this.activeChat.messages
+            var contactMessage = this.activeChat.messages;
+
+            this.newSendMessage.text = this.userMessage;
+            this.userMessage = "";  // svuoto il campo input dove si scrive il messaggio
+            this.newSendMessage.status = "sent";
+            this.newSendMessage.date = dayjs().format('DD/MM/YYYY H:mm:ss');
+            contactMessage.push(this.newSendMessage);
+            this.newSendMessage = {}; // svuoto l'oggetto
+
+
+            // aggiungo la parte temporizzata che dopo un secondo mi risponde sempre "ok"
+            setTimeout ( 
+                () => {
+                this.newReceiveMessage.text = "Ok";
+                this.newReceiveMessage.status = "received";
+                this.newReceiveMessage.date = dayjs().format('DD/MM/YYYY H:mm:ss');
+                contactMessage.push(this.newReceiveMessage);
+                this.newReceiveMessage = {}; // svuoto l'oggetto
+            }, 1000);
 
         },
     }
