@@ -15,9 +15,6 @@
 
 var app = new Vue({
     el: '#root',
-    created: function() {
-        this.activeChat = this.contacts[0];
-    },
     data: {
         contacts: [
             {
@@ -112,7 +109,6 @@ var app = new Vue({
             },
 
         ],
-        activeChat: {},
         newSendMessage: {},
         newReceiveMessage: {},
         selectedIndex: 0,
@@ -122,12 +118,11 @@ var app = new Vue({
     methods: {
         clickContact: function (index) {
             //mi creao la funzione per quando clicco su un contatto e gestistco l'active
-            this.activeChat = this.contacts[index];
             this.selectedIndex = index;
         },
 
-        sendMessage: function (){
-            var contactMessage = this.activeChat.messages;
+        sendMessage: function (selectedIndex){
+            var contactMessage = this.contacts[selectedIndex].messages;
 
             this.newSendMessage.text = this.userMessage;
             this.userMessage = "";  // svuoto il campo input dove si scrive il messaggio
@@ -162,7 +157,6 @@ var app = new Vue({
                         () => {
                             this.userSearchChat = ''; 
                         }, 100);
-                    
                 }
             );
         },
