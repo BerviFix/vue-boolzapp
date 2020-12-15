@@ -6,6 +6,12 @@
 // ●	Visualizzazione dinamica dei messaggi: tramite la direttiva v -for, visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione
 // ●	Click sul contatto mostra la conversazione del contatto cliccato
 
+// Milestone 3
+// Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde
+// Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
+//     Milestone 4
+// Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite(es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
+
 
 var app = new Vue({
     el: '#root',
@@ -111,6 +117,7 @@ var app = new Vue({
         newReceiveMessage: {},
         selectedIndex: 0,
         userMessage: '',
+        userSearchChat: '',
     },
     methods: {
         clickContact: function (index) {
@@ -140,6 +147,24 @@ var app = new Vue({
                 this.newReceiveMessage = {}; // svuoto l'oggetto
             }, 1000);
 
+        },
+
+        searchChat: function (){
+            // uso il for each per ciclare nell'array e ad ogni iterazione vado a settare visible a false, se "if" nell'array è inclusa il nome che sta cercando l'utente allora setto visible a true e nell'html nel v-for che mi stampta le chat ho messo un v-if che mi farà vedere le chat che hanno visible settato a true
+            this.contacts.forEach(
+                (element) => {
+                    element.visible = false;
+                    if (element.name.includes(this.userSearchChat)) {
+                        element.visible = true;
+                    }
+                    setTimeout(
+                        // dopo tot secondi svuoto il campo di ricerca
+                        () => {
+                            this.userSearchChat = ''; 
+                        }, 100);
+                    
+                }
+            );
         },
     }
 });

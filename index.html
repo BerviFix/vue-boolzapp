@@ -87,11 +87,11 @@
                     <div class="icon_message_search">
                         <i class="fas fa-search icon_colors"></i>
                     </div>
-                    <input type="text" placeholder="Cerca o inizia una nuova chat" class="message_search_input">
+                    <input v-model="userSearchChat" type="text" placeholder="Cerca o inizia una nuova chat" class="message_search_input" v-on:keyup.13="searchChat">
                 </div>
 
                 <div class="chat_list">
-                    <div v-for="(contact, index) in contacts" class="chat_row" @click="clickContact(index)" :class="{ active: selectedIndex == index }">
+                    <div v-for="(contact, index) in contacts" class="chat_row" @click="clickContact(index)" :class="{ active: selectedIndex == index }" v-if="contact.visible">
                         <div class="avatar_img">
                             <img :src="'img/' + contacts[index].avatar" alt="avatar" width="50px">
                         </div>
