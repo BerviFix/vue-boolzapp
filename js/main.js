@@ -127,7 +127,7 @@ var app = new Vue({
             this.newSendMessage.text = this.userMessage;
             this.userMessage = "";  // svuoto il campo input dove si scrive il messaggio
             this.newSendMessage.status = "sent";
-            this.newSendMessage.date = dayjs().format('DD/MM/YYYY H:mm:ss');
+            this.newSendMessage.date = dayjs().format('DD/MM/YYYY H:mm:ss'); // mi sono importato la libreria dayjs con la cdn e dalla pagina dedicata di GiTHub ho visto come aggiungere la data
             contactMessage.push(this.newSendMessage);
             this.newSendMessage = {}; // svuoto l'oggetto
 
