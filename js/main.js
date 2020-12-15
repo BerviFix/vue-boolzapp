@@ -140,8 +140,10 @@ var app = new Vue({
                 this.newReceiveMessage.date = dayjs().format('DD/MM/YYYY H:mm:ss');
                 contactMessage.push(this.newReceiveMessage);
                 this.newReceiveMessage = {}; // svuoto l'oggetto
+                this.scrollToEnd();
             }, 1000);
-
+            
+            this.scrollToEnd();
         },
 
         searchChat: function (){
@@ -159,6 +161,13 @@ var app = new Vue({
                         }, 100);
                 }
             );
+        },
+
+        scrollToEnd: function () {
+            this.$nextTick(function () {
+                const container = this.$el.querySelector('.wrapper_chat');
+                container.scrollTop = container.scrollHeight;
+            });
         },
     }
 });
